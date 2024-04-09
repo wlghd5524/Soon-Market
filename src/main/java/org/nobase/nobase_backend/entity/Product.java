@@ -17,7 +17,7 @@ public class Product {
     private String pdTitle;
     private String pdDes;
     private double pdPrice;
-    private String shSize;
+    private String pdSize;
     private String categories;
 
     @Column(nullable = false, updatable = false)

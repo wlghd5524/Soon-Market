@@ -19,7 +19,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Service
 public class ProductService{
-    @Value("${file.upload-dir}")
+    @Value("${productFile.upload-dir}")
     private String path;
     private Path rootLocation;
     private final ProductRepository productRepository;
