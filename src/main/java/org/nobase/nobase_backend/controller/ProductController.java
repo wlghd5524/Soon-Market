@@ -1,5 +1,7 @@
-package org.nobase.nobase_backend;
+package org.nobase.nobase_backend.controller;
 
+import org.nobase.nobase_backend.entity.Product;
+import org.nobase.nobase_backend.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,23 +14,24 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
-
     @Autowired
     private ProductService productService;
 
-
     @PostMapping
     public ResponseEntity<Product> createProduct(
-            //@RequestParam("sellerName") String sellerName,
-            //@RequestParam("userId") String userId,
-            @RequestParam("title") String title,
-            @RequestParam("content") String content,
-            @RequestParam("price") double price,
-            @RequestParam("categories") List<String> categories,
+            @ModelAttribute ProductDTO productDTO,
             @RequestParam("image") MultipartFile imageFile
     ) {
         try {
-            Product product = productService.createProduct  (title, content, price, categories, imageFile);
+            String userId = productDTO.getUserId();
+            String title = productDTO.getTitle();
+            String content = productDTO.getContent();
+            double price = productDTO.getPrice();
+            String category = productDTO.getCategory();
+            String size = productDTO.getSize();
+            String username = productDTO.getUsername();
+
+            Product product = productService.createProduct(userId, username, title, content, price, category, imageFile, size);
             return new ResponseEntity<>(product, HttpStatus.CREATED);
         } catch (IOException e) {
             e.printStackTrace();
