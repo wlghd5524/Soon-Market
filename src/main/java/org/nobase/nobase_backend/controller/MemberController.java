@@ -16,6 +16,7 @@ import java.util.List;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+
     @PostMapping
     public ResponseEntity<Member> createMember(
             @ModelAttribute MemberDTO memberDTO,
@@ -30,16 +31,17 @@ public class MemberController {
             String mbTel = memberDTO.getMbTel();
             String mbPasswd = memberDTO.getMbPasswd();
             String mbUsername = memberDTO.getMbUsername();
-            Member member = memberService.createMember(mbId,mbEmail,mbName,mbImgPath,mbAddress,mbTel,mbPasswd,mbUsername,imageFile);
+            Member member = memberService.createMember(mbId, mbAddress, mbEmail, mbImgPath, mbName, mbPasswd, mbTel, mbUsername, imageFile);
             return new ResponseEntity<>(member, HttpStatus.CREATED);
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @GetMapping
     public ResponseEntity<List<Member>> getAllMembers() {
         List<Member> members = memberService.getAllMembers();
-        return new ResponseEntity<>(members,HttpStatus.OK);
+        return new ResponseEntity<>(members, HttpStatus.OK);
     }
 }
