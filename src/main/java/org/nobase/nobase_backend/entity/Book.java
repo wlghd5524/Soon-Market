@@ -27,5 +27,5 @@ public class Book {
     @Column(columnDefinition = "TEXT")
     private String bkImgPath;
 
-    private String mbUsername;
+    private String mbNickname;
 }

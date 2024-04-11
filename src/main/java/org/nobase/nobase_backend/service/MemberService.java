@@ -24,7 +24,7 @@ public class MemberService {
     private Path rootLocation;
     private final MemberRepository memberRepository;
 
-    public Member createMember(String mbId, String mbAddress, String mbEmail, String mbImgPath, String mbName, String mbPasswd, String mbTel, String mbUsername, MultipartFile imageFile) throws IOException {
+    public Member createMember(String mbId, String mbAddress, String mbEmail, String mbImgPath, String mbName, String mbPasswd, String mbTel, String mbNickname, MultipartFile imageFile) throws IOException {
 
         this.rootLocation = Paths.get(path).toAbsolutePath().normalize();
         String filename = storeFile(imageFile, mbId);
@@ -37,7 +37,7 @@ public class MemberService {
         member.setMbName(mbName);
         member.setMbPasswd(mbPasswd);
         member.setMbTel(mbTel);
-        member.setMbUsername(mbUsername);
+        member.setMbNickname(mbNickname);
         member.setMbImgPath(filePath);
 
         return memberRepository.save(member);

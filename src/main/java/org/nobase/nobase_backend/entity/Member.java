@@ -20,5 +20,5 @@ public class Member {
     private String mbReceiveId;
     private String mbTel;
     private String mbPasswd;
-    private String mbUsername;
+    private String mbNickname;
 }

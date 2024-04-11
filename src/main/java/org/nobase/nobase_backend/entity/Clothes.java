@@ -28,5 +28,5 @@ public class Clothes {
     private String clImgPath;
 
     private boolean selling;
-    private String mbUsername;
+    private String mbNickname;
 }

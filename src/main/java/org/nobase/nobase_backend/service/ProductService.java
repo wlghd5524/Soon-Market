@@ -31,14 +31,14 @@ public class ProductService{
     private final LifeGoodsRepository lifegoodsRepository;
     private final ShoesRepository shoesRepository;
 
-    public Product createProduct(String mbId, String mbUsername,String title, String des, double price, String category, MultipartFile imageFile, String size) throws IOException {
+    public Product createProduct(String mbId, String mbNickname,String title, String des, double price, String category, MultipartFile imageFile, String size) throws IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         String directoryPath = this.path + "/" + LocalDateTime.now().format(formatter);  //이미지 파일을 저장할 디렉토리 이름을 오늘 날짜로 설정
         this.rootLocation = Paths.get(directoryPath).toAbsolutePath().normalize();
         String filename = storeFile(imageFile,mbId);
         String filePath = rootLocation.resolve(filename).toString();
         Product product = new Product();
-        product.setMbUsername(mbUsername);
+        product.setMbNickname(mbNickname);
         product.setMbId(mbId);
         product.setPdTitle(title);
         product.setPdDes(des);
@@ -55,7 +55,7 @@ public class ProductService{
             book.setBkImgPath(filePath);
             book.setBkUploadTime(LocalDateTime.now());
             book.setMbId(mbId);
-            book.setMbUsername(mbUsername);
+            book.setMbNickname(mbNickname);
             bookRepository.save(book);
         }
         if (Objects.equals(category, "clothes")) {
@@ -67,7 +67,7 @@ public class ProductService{
             clothes.setClUploadTime(LocalDateTime.now());
             clothes.setMbId(mbId);
             clothes.setClSize(size);
-            clothes.setMbUsername(mbUsername);
+            clothes.setMbNickname(mbNickname);
             clothesRepository.save(clothes);
         }
         if (Objects.equals(category, "electronics")) {
@@ -78,7 +78,7 @@ public class ProductService{
             elec.setElImgPath(filePath);
             elec.setElUploadTime(LocalDateTime.now());
             elec.setMbId(mbId);
-            elec.setMbUsername(mbUsername);
+            elec.setMbNickname(mbNickname);
             elecRepository.save(elec);
         }
         if (Objects.equals(category, "etc")) {
@@ -89,7 +89,7 @@ public class ProductService{
             etc.setEtImgPath(filePath);
             etc.setEtUploadTime(LocalDateTime.now());
             etc.setMbId(mbId);
-            etc.setMbUsername(mbUsername);
+            etc.setMbNickname(mbNickname);
             etcRepository.save(etc);
         }
         if (Objects.equals(category, "gift")) {
@@ -100,7 +100,7 @@ public class ProductService{
             gift.setGfImgPath(filePath);
             gift.setGfUploadTime(LocalDateTime.now());
             gift.setMbId(mbId);
-            gift.setMbUsername(mbUsername);
+            gift.setMbNickname(mbNickname);
             giftRepository.save(gift);
         }
         if (Objects.equals(category, "lifegoods")) {
@@ -111,7 +111,7 @@ public class ProductService{
             lifeGoods.setLgImgPath(filePath);
             lifeGoods.setLgUploadTime(LocalDateTime.now());
             lifeGoods.setMbId(mbId);
-            lifeGoods.setMbUsername(mbUsername);
+            lifeGoods.setMbNickname(mbNickname);
             lifegoodsRepository.save(lifeGoods);
         }
         if (Objects.equals(category, "shoes")) {
@@ -123,7 +123,7 @@ public class ProductService{
             shoes.setShUploadTime(LocalDateTime.now());
             shoes.setMbId(mbId);
             shoes.setShSize(size);
-            shoes.setMbUsername(mbUsername);
+            shoes.setMbNickname(mbNickname);
             shoesRepository.save(shoes);
         }
         return productRepository.save(product);

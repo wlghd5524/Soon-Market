@@ -25,5 +25,5 @@ public class LifeGoods {
 
     @Column(columnDefinition = "TEXT")
     private String lgImgPath;
-    private String mbUsername;
+    private String mbNickname;
 }

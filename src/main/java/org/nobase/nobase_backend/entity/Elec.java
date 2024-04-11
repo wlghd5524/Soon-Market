@@ -26,5 +26,5 @@ public class Elec {
     @Column(columnDefinition = "TEXT")
     private String elImgPath;
     private boolean elSelling;
-    private String mbUsername;
+    private String mbNickname;
 }

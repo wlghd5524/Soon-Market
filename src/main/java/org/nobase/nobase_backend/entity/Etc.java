@@ -25,5 +25,5 @@ public class Etc {
 
     @Column(columnDefinition = "TEXT")
     private String etImgPath;
-    private String mbUsername;
+    private String mbNickname;
 }

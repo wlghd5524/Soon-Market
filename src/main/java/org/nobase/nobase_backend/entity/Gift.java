@@ -27,5 +27,5 @@ public class Gift {
     @Column(columnDefinition = "TEXT")
     private String gfImgPath;
     private boolean gfSelling;
-    private String mbUsername;
+    private String mbNickname;
 }

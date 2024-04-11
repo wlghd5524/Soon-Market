@@ -27,5 +27,5 @@ public class Product {
     private String pdImgPath;
 
     private boolean pdSelling;
-    private String mbUsername;
+    private String mbNickname;
 }

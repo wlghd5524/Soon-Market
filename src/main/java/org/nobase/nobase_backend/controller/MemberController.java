@@ -30,8 +30,8 @@ public class MemberController {
             String mbAddress = memberDTO.getMbAddress();
             String mbTel = memberDTO.getMbTel();
             String mbPasswd = memberDTO.getMbPasswd();
-            String mbUsername = memberDTO.getMbUsername();
-            Member member = memberService.createMember(mbId, mbAddress, mbEmail, mbImgPath, mbName, mbPasswd, mbTel, mbUsername, imageFile);
+            String mbNickname = memberDTO.getMbNickname();
+            Member member = memberService.createMember(mbId, mbAddress, mbEmail, mbImgPath, mbName, mbPasswd, mbTel, mbNickname, imageFile);
             return new ResponseEntity<>(member, HttpStatus.CREATED);
         } catch (IOException e) {
             e.printStackTrace();

@@ -28,5 +28,5 @@ public class Shoes {
     @Column(columnDefinition = "TEXT")
     private String shImgPath;
     private boolean shSelling;
-    private String mbUsername;
+    private String mbNickname;
 }

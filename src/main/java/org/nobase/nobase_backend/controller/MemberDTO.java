@@ -13,5 +13,5 @@ public class MemberDTO {
     private String mbAddress;
     private String mbTel;
     private String mbPasswd;
-    private String mbUsername;
+    private String mbNickname;
 }
