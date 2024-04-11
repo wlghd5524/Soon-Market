@@ -12,5 +12,5 @@ public class ProductDTO {
     private double price;
     private String category;
     private String size;
-    private String Nickname;
+    private String nickname;
 }

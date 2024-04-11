@@ -29,9 +29,9 @@ public class ProductController {
             double price = productDTO.getPrice();
             String category = productDTO.getCategory();
             String size = productDTO.getSize();
-            String username = productDTO.getUsername();
+            String nickname = productDTO.getNickname();
 
-            Product product = productService.createProduct(userId, username, title, content, price, category, imageFile, size);
+            Product product = productService.createProduct(userId, nickname, title, content, price, category, imageFile, size);
             return new ResponseEntity<>(product, HttpStatus.CREATED);
         } catch (IOException e) {
             e.printStackTrace();
