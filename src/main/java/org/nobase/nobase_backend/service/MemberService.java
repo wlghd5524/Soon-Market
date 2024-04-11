@@ -24,22 +24,15 @@ public class MemberService {
     private Path rootLocation;
     private final MemberRepository memberRepository;
 
-    public Member createMember(String mbId, String mbAddress, String mbEmail, String mbImgPath, String mbName, String mbPasswd, String mbTel, String mbNickname, MultipartFile imageFile) throws IOException {
-
-        this.rootLocation = Paths.get(path).toAbsolutePath().normalize();
-        String filename = storeFile(imageFile, mbId);
-        String filePath = rootLocation.resolve(filename).toString();
+    public Member createMember(String mbId, String mbAddress, String mbEmail, String mbName, String mbPasswd, String mbTel, String mbNickname) throws IOException {
         Member member = new Member();
         member.setMbId(mbId);
         member.setMbAddress(mbAddress);
         member.setMbEmail(mbEmail);
-        member.setMbImgPath(mbImgPath);
         member.setMbName(mbName);
         member.setMbPasswd(mbPasswd);
         member.setMbTel(mbTel);
         member.setMbNickname(mbNickname);
-        member.setMbImgPath(filePath);
-
         return memberRepository.save(member);
     }
 

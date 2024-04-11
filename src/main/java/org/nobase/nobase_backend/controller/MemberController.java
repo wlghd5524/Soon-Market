@@ -19,19 +19,17 @@ public class MemberController {
 
     @PostMapping
     public ResponseEntity<Member> createMember(
-            @ModelAttribute MemberDTO memberDTO,
-            @RequestParam("image") MultipartFile imageFile
+            @ModelAttribute MemberDTO memberDTO
     ) throws IOException {
         try {
             String mbId = memberDTO.getMbId();
             String mbEmail = memberDTO.getMbEmail();
             String mbName = memberDTO.getMbName();
-            String mbImgPath = memberDTO.getMbImgPath();
             String mbAddress = memberDTO.getMbAddress();
             String mbTel = memberDTO.getMbTel();
             String mbPasswd = memberDTO.getMbPasswd();
             String mbNickname = memberDTO.getMbNickname();
-            Member member = memberService.createMember(mbId, mbAddress, mbEmail, mbImgPath, mbName, mbPasswd, mbTel, mbNickname, imageFile);
+            Member member = memberService.createMember(mbId, mbAddress, mbEmail, mbName, mbPasswd, mbTel, mbNickname);
             return new ResponseEntity<>(member, HttpStatus.CREATED);
         } catch (IOException e) {
             e.printStackTrace();
