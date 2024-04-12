@@ -12,21 +12,21 @@ import java.time.LocalDateTime;
 public class Shoes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long shId;
+    private Long sh_id;
 
-    private String mbId;
-    private String shTitle;
-    private String shSize;
-    private double shPrice;
+    private String mb_id;
+    private String sh_title;
+    private String sh_size;
+    private double sh_price;
 
     @Column(columnDefinition = "TEXT")
-    private String shDes;
+    private String sh_des;
 
     @Column(nullable = false,updatable = false)
-    private LocalDateTime shUploadTime;
+    private LocalDateTime sh_upload_time;
 
     @Column(columnDefinition = "TEXT")
-    private String shImgPath;
-    private boolean shSelling;
-    private String mbNickname;
+    private String sh_img_path;
+    private boolean sh_selling;
+    private String mb_nickname;
 }

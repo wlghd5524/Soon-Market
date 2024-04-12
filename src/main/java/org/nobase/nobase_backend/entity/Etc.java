@@ -11,19 +11,19 @@ import java.time.LocalDateTime;
 public class Etc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long etId;
+    private Long et_id;
 
-    private String mbId;
-    private String etTitle;
-    private double etPrice;
+    private String mb_id;
+    private String et_title;
+    private double et_price;
 
     @Column(columnDefinition = "TEXT")
-    private String etDes;
+    private String et_des;
 
     @Column(nullable = false,updatable = false)
-    private LocalDateTime etUploadTime;
+    private LocalDateTime et_upload_time;
 
     @Column(columnDefinition = "TEXT")
-    private String etImgPath;
-    private String mbNickname;
+    private String et_img_path;
+    private String mb_nickname;
 }

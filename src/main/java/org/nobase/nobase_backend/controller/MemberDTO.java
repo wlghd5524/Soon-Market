@@ -6,12 +6,12 @@ import lombok.Setter;
 @Setter
 @Getter
 public class MemberDTO {
-    private String mbId;
-    private String mbEmail;
-    private String mbName;
-    private String mbImgPath;
-    private String mbAddress;
-    private String mbTel;
-    private String mbPasswd;
-    private String mbNickname;
+    private String mb_id;
+    private String mb_email;
+    private String mb_name;
+    private String mb_imgPath;
+    private String mb_address;
+    private String mb_tel;
+    private String mb_passwd;
+    private String mb_nickname;
 }

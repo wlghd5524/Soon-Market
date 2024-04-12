@@ -11,19 +11,19 @@ import java.time.LocalDateTime;
 public class LifeGoods {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long lgId;
+    private Long lg_id;
 
-    private String mbId;
-    private String lgTitle;
-    private double lgPrice;
+    private String mb_id;
+    private String lg_title;
+    private double lg_price;
 
     @Column(columnDefinition = "TEXT")
-    private String lgDes;
+    private String lg_des;
 
     @Column(nullable = false,updatable = false)
-    private LocalDateTime lgUploadTime;
+    private LocalDateTime lg_upload_time;
 
     @Column(columnDefinition = "TEXT")
-    private String lgImgPath;
-    private String mbNickname;
+    private String lg_img_path;
+    private String mb_nickname;
 }

@@ -11,22 +11,22 @@ import java.time.LocalDateTime;
 public class Clothes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long clId;
+    private Long cl_id;
 
-    private String mbId;
-    private String clTitle;
-    private double clPrice;
-    private String clSize;
+    private String mb_id;
+    private String cl_title;
+    private double cl_price;
+    private String cl_size;
 
     @Column(columnDefinition = "TEXT")
-    private String clDes;
+    private String cl_des;
 
     @Column(nullable = false,updatable = false)
-    private LocalDateTime clUploadTime;
+    private LocalDateTime cl_upload_time;
 
     @Column(columnDefinition = "TEXT")
-    private String clImgPath;
+    private String cl_img_path;
 
-    private boolean selling;
-    private String mbNickname;
+    private boolean cl_selling;
+    private String mb_nickname;
 }

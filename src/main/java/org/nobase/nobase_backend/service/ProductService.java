@@ -31,112 +31,112 @@ public class ProductService{
     private final LifeGoodsRepository lifegoodsRepository;
     private final ShoesRepository shoesRepository;
 
-    public Product createProduct(String mbId, String mbNickname,String title, String des, double price, String category, MultipartFile imageFile, String size) throws IOException {
+    public Product createProduct(String mb_id, String mb_nickname,String _title, String _des, double _price, String category, MultipartFile imageFile, String _size) throws IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         String directoryPath = this.path + "/" + LocalDateTime.now().format(formatter);  //이미지 파일을 저장할 디렉토리 이름을 오늘 날짜로 설정
         this.rootLocation = Paths.get(directoryPath).toAbsolutePath().normalize();
-        String filename = storeFile(imageFile,mbId);
+        String filename = storeFile(imageFile,mb_id);
         String filePath = rootLocation.resolve(filename).toString();
         Product product = new Product();
-        product.setMbNickname(mbNickname);
-        product.setMbId(mbId);
-        product.setPdTitle(title);
-        product.setPdDes(des);
-        product.setPdPrice(price);
+        product.setMb_nickname(mb_nickname);
+        product.setMb_id(mb_id);
+        product.setPd_title(_title);
+        product.setPd_des(_des);
+        product.setPd_price(_price);
         product.setCategories(category);
-        product.setPdImgPath(filePath);
-        product.setPdUploadTime(LocalDateTime.now());
+        product.setPd_img_path(filePath);
+        product.setPd_upload_time(LocalDateTime.now());
 
         if (Objects.equals(category, "book")) {
             Book book = new Book();
-            book.setBkDes(des);
-            book.setBkTitle(title);
-            book.setBkPrice(price);
-            book.setBkImgPath(filePath);
-            book.setBkUploadTime(LocalDateTime.now());
-            book.setMbId(mbId);
-            book.setMbNickname(mbNickname);
+            book.setBk_des(_des);
+            book.setBk_title(_title);
+            book.setBk_price(_price);
+            book.setBk_img_path(filePath);
+            book.setBk_upload_time(LocalDateTime.now());
+            book.setMb_id(mb_id);
+            book.setMb_nickname(mb_nickname);
             bookRepository.save(book);
         }
         if (Objects.equals(category, "clothes")) {
             Clothes clothes = new Clothes();
-            clothes.setClDes(des);
-            clothes.setClTitle(title);
-            clothes.setClPrice(price);
-            clothes.setClImgPath(filePath);
-            clothes.setClUploadTime(LocalDateTime.now());
-            clothes.setMbId(mbId);
-            clothes.setClSize(size);
-            clothes.setMbNickname(mbNickname);
+            clothes.setCl_des(_des);
+            clothes.setCl_title(_title);
+            clothes.setCl_price(_price);
+            clothes.setCl_img_path(filePath);
+            clothes.setCl_upload_time(LocalDateTime.now());
+            clothes.setMb_id(mb_id);
+            clothes.setCl_size(_size);
+            clothes.setMb_nickname(mb_nickname);
             clothesRepository.save(clothes);
         }
         if (Objects.equals(category, "electronics")) {
             Elec elec = new Elec();
-            elec.setElDes(des);
-            elec.setElTitle(title);
-            elec.setElPrice(price);
-            elec.setElImgPath(filePath);
-            elec.setElUploadTime(LocalDateTime.now());
-            elec.setMbId(mbId);
-            elec.setMbNickname(mbNickname);
+            elec.setEl_des(_des);
+            elec.setEl_title(_title);
+            elec.setEl_price(_price);
+            elec.setEl_img_path(filePath);
+            elec.setEl_upload_time(LocalDateTime.now());
+            elec.setMb_id(mb_id);
+            elec.setMb_nickname(mb_nickname);
             elecRepository.save(elec);
         }
         if (Objects.equals(category, "etc")) {
             Etc etc = new Etc();
-            etc.setEtDes(des);
-            etc.setEtTitle(title);
-            etc.setEtPrice(price);
-            etc.setEtImgPath(filePath);
-            etc.setEtUploadTime(LocalDateTime.now());
-            etc.setMbId(mbId);
-            etc.setMbNickname(mbNickname);
+            etc.setEt_des(_des);
+            etc.setEt_title(_title);
+            etc.setEt_price(_price);
+            etc.setEt_img_path(filePath);
+            etc.setEt_upload_time(LocalDateTime.now());
+            etc.setMb_id(mb_id);
+            etc.setMb_nickname(mb_nickname);
             etcRepository.save(etc);
         }
         if (Objects.equals(category, "gift")) {
             Gift gift = new Gift();
-            gift.setGfDes(des);
-            gift.setGfTitle(title);
-            gift.setGfPrice(price);
-            gift.setGfImgPath(filePath);
-            gift.setGfUploadTime(LocalDateTime.now());
-            gift.setMbId(mbId);
-            gift.setMbNickname(mbNickname);
+            gift.setGf_des(_des);
+            gift.setGf_title(_title);
+            gift.setGf_price(_price);
+            gift.setGf_img_path(filePath);
+            gift.setGf_upload_time(LocalDateTime.now());
+            gift.setMb_id(mb_id);
+            gift.setMb_nickname(mb_nickname);
             giftRepository.save(gift);
         }
         if (Objects.equals(category, "lifegoods")) {
             LifeGoods lifeGoods = new LifeGoods();
-            lifeGoods.setLgDes(des);
-            lifeGoods.setLgTitle(title);
-            lifeGoods.setLgPrice(price);
-            lifeGoods.setLgImgPath(filePath);
-            lifeGoods.setLgUploadTime(LocalDateTime.now());
-            lifeGoods.setMbId(mbId);
-            lifeGoods.setMbNickname(mbNickname);
+            lifeGoods.setLg_des(_des);
+            lifeGoods.setLg_title(_title);
+            lifeGoods.setLg_price(_price);
+            lifeGoods.setLg_img_path(filePath);
+            lifeGoods.setLg_upload_time(LocalDateTime.now());
+            lifeGoods.setMb_id(mb_id);
+            lifeGoods.setMb_nickname(mb_nickname);
             lifegoodsRepository.save(lifeGoods);
         }
         if (Objects.equals(category, "shoes")) {
             Shoes shoes = new Shoes();
-            shoes.setShDes(des);
-            shoes.setShTitle(title);
-            shoes.setShPrice(price);
-            shoes.setShImgPath(filePath);
-            shoes.setShUploadTime(LocalDateTime.now());
-            shoes.setMbId(mbId);
-            shoes.setShSize(size);
-            shoes.setMbNickname(mbNickname);
+            shoes.setSh_des(_des);
+            shoes.setSh_title(_title);
+            shoes.setSh_price(_price);
+            shoes.setSh_img_path(filePath);
+            shoes.setSh_upload_time(LocalDateTime.now());
+            shoes.setMb_id(mb_id);
+            shoes.setSh_size(_size);
+            shoes.setMb_nickname(mb_nickname);
             shoesRepository.save(shoes);
         }
         return productRepository.save(product);
     }
 
-    public String storeFile(MultipartFile file, String mbId) throws IOException {
-        String filename = generateFileName(file,mbId);  //파일 이름 생성(userID_20240401_133340.png)
+    public String storeFile(MultipartFile file, String mb_id) throws IOException {
+        String filename = generateFileName(file,mb_id);  //파일 이름 생성(mb_id_20240401_133340.png)
         Files.createDirectories(rootLocation);
         Files.copy(file.getInputStream(), this.rootLocation.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
         return filename;
     }
 
-    public String generateFileName(MultipartFile file, String mbId) {
+    public String generateFileName(MultipartFile file, String mb_id) {
         String filename = file.getOriginalFilename();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
         String formattedDateTime = LocalDateTime.now().format(formatter);
@@ -145,7 +145,7 @@ public class ProductService{
             return null;
         }
         String extension = filename.substring(dotIndex);
-        filename = mbId + "_" + formattedDateTime + extension;
+        filename = mb_id + "_" + formattedDateTime + extension;
         return filename;
     }
 

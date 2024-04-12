@@ -24,15 +24,15 @@ public class MemberService {
     private Path rootLocation;
     private final MemberRepository memberRepository;
 
-    public Member createMember(String mbId, String mbAddress, String mbEmail, String mbName, String mbPasswd, String mbTel, String mbNickname) throws IOException {
+    public Member createMember(String mb_id, String mb_address, String mb_email, String mb_name, String mb_passwd, String mb_tel, String mb_nickname) throws IOException {
         Member member = new Member();
-        member.setMbId(mbId);
-        member.setMbAddress(mbAddress);
-        member.setMbEmail(mbEmail);
-        member.setMbName(mbName);
-        member.setMbPasswd(mbPasswd);
-        member.setMbTel(mbTel);
-        member.setMbNickname(mbNickname);
+        member.setMb_id(mb_id);
+        member.setMb_address(mb_address);
+        member.setMb_email(mb_email);
+        member.setMb_name(mb_name);
+        member.setMb_passwd(mb_passwd);
+        member.setMb_tel(mb_tel);
+        member.setMb_nickname(mb_nickname);
         return memberRepository.save(member);
     }
 

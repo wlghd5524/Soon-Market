@@ -12,20 +12,20 @@ import java.time.LocalDateTime;
 public class Gift {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long gfId;
+    private Long gf_id;
 
-    private String mbId;
-    private String gfTitle;
-    private double gfPrice;
+    private String mb_id;
+    private String gf_title;
+    private double gf_price;
 
     @Column(columnDefinition = "TEXT")
-    private String gfDes;
+    private String gf_des;
 
     @Column(nullable = false,updatable = false)
-    private LocalDateTime gfUploadTime;
+    private LocalDateTime gf_upload_time;
 
     @Column(columnDefinition = "TEXT")
-    private String gfImgPath;
-    private boolean gfSelling;
-    private String mbNickname;
+    private String gf_img_path;
+    private boolean gf_selling;
+    private String mb_nickname;
 }

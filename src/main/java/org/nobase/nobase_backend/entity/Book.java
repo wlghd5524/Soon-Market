@@ -12,20 +12,20 @@ import java.time.LocalDateTime;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bkId;
+    private Long bk_id;
 
-    private String mbId;
-    private String bkTitle;
-    private double bkPrice;
+    private String mb_id;
+    private String bk_title;
+    private double bk_price;
 
     @Column(columnDefinition = "TEXT")
-    private String bkDes;
+    private String bk_des;
 
     @Column(nullable = false,updatable = false)
-    private LocalDateTime bkUploadTime;
+    private LocalDateTime bk_upload_time;
 
     @Column(columnDefinition = "TEXT")
-    private String bkImgPath;
+    private String bk_img_path;
 
-    private String mbNickname;
+    private String mb_nickname;
 }

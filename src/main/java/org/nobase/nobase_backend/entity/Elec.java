@@ -11,20 +11,20 @@ import java.time.LocalDateTime;
 public class Elec {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long elId;
+    private Long el_id;
 
-    private String mbId;
-    private String elTitle;
-    private double elPrice;
+    private String mb_id;
+    private String el_title;
+    private double el_price;
 
     @Column(columnDefinition = "TEXT")
-    private String elDes;
+    private String el_des;
 
     @Column(nullable = false,updatable = false)
-    private LocalDateTime elUploadTime;
+    private LocalDateTime el_upload_time;
 
     @Column(columnDefinition = "TEXT")
-    private String elImgPath;
-    private boolean elSelling;
-    private String mbNickname;
+    private String el_img_path;
+    private boolean el_selling;
+    private String mb_nickname;
 }

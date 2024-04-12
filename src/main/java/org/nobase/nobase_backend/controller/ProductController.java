@@ -20,18 +20,18 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<Product> createProduct(
             @ModelAttribute ProductDTO productDTO,
-            @RequestParam("image") MultipartFile imageFile
+            @RequestParam("pd_image") MultipartFile imageFile
     ) {
         try {
-            String userId = productDTO.getUserId();
-            String title = productDTO.getTitle();
-            String content = productDTO.getContent();
-            double price = productDTO.getPrice();
+            String mb_id = productDTO.getMb_id();
+            String pd_title = productDTO.getPd_title();
+            String pd_des = productDTO.getPd_des();
+            double pd_price = productDTO.getPd_price();
             String category = productDTO.getCategory();
-            String size = productDTO.getSize();
-            String nickname = productDTO.getNickname();
+            String sh_size = productDTO.getSh_size();
+            String mb_nickname = productDTO.getMb_nickname();
 
-            Product product = productService.createProduct(userId, nickname, title, content, price, category, imageFile, size);
+            Product product = productService.createProduct(mb_id, mb_nickname, pd_title, pd_des, pd_price, category, imageFile, sh_size);
             return new ResponseEntity<>(product, HttpStatus.CREATED);
         } catch (IOException e) {
             e.printStackTrace();

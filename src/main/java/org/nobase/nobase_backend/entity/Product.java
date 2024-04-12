@@ -13,19 +13,19 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String mbId;
-    private String pdTitle;
-    private String pdDes;
-    private double pdPrice;
-    private String pdSize;
+    private String mb_id;
+    private String pd_title;
+    private String pd_des;
+    private double pd_price;
+    private String sh_size;
     private String categories;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime pdUploadTime;
+    private LocalDateTime pd_upload_time;
 
     @Column(columnDefinition = "TEXT")
-    private String pdImgPath;
+    private String pd_img_path;
 
-    private boolean pdSelling;
-    private String mbNickname;
+    private boolean pd_selling;
+    private String mb_nickname;
 }

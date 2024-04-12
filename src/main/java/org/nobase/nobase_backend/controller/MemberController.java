@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,14 +21,14 @@ public class MemberController {
             @ModelAttribute MemberDTO memberDTO
     ) throws IOException {
         try {
-            String mbId = memberDTO.getMbId();
-            String mbEmail = memberDTO.getMbEmail();
-            String mbName = memberDTO.getMbName();
-            String mbAddress = memberDTO.getMbAddress();
-            String mbTel = memberDTO.getMbTel();
-            String mbPasswd = memberDTO.getMbPasswd();
-            String mbNickname = memberDTO.getMbNickname();
-            Member member = memberService.createMember(mbId, mbAddress, mbEmail, mbName, mbPasswd, mbTel, mbNickname);
+            String mb_id = memberDTO.getMb_id();
+            String mb_email = memberDTO.getMb_email();
+            String mb_name = memberDTO.getMb_name();
+            String mb_address = memberDTO.getMb_address();
+            String mb_tel = memberDTO.getMb_tel();
+            String mb_passwd = memberDTO.getMb_passwd();
+            String mb_nickname = memberDTO.getMb_nickname();
+            Member member = memberService.createMember(mb_id, mb_address, mb_email, mb_name, mb_passwd, mb_tel, mb_nickname);
             return new ResponseEntity<>(member, HttpStatus.CREATED);
         } catch (IOException e) {
             e.printStackTrace();
