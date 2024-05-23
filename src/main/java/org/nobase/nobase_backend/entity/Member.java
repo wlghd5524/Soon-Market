@@ -24,6 +24,7 @@ public class Member {
     private String mb_passwd;
     private String mb_nickname;
     private String cookie;
+    private String kakao;
 
 
 }
