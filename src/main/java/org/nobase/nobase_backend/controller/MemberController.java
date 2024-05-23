@@ -1,6 +1,11 @@
 package org.nobase.nobase_backend.controller;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.nobase.nobase_backend.entity.Member;
+import org.nobase.nobase_backend.security.JWT.test.JwtToken;
 import org.nobase.nobase_backend.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,13 +15,15 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+@Slf4j
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/members")
 public class MemberController {
-    @Autowired
+
     private MemberService memberService;
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseEntity<Member> createMember(
             @ModelAttribute MemberDTO memberDTO
     ) throws IOException {
@@ -34,6 +41,16 @@ public class MemberController {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @PostMapping("/sign-in")
+    public JwtToken signIn(@RequestBody SignInDto signInDto) {
+        String mb_id = signInDto.getMb_id();
+        String mb_passwd = signInDto.getMb_passwd();
+        JwtToken jwtToken = memberService.signIn(mb_id, mb_passwd);
+        log.info("request username = {}, password = {}", mb_id, mb_passwd);
+        log.info("jwtToken accessToken = {}, refreshToken = {}", jwtToken.getAccessToken(), jwtToken.getRefreshToken());
+        return jwtToken;
     }
 
     @GetMapping

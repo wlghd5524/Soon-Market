@@ -1,4 +1,4 @@
-package org.nobase.nobase_backend.config;
+package org.nobase.nobase_backend.security.config;
 
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
